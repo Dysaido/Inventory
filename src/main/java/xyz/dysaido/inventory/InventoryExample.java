@@ -19,14 +19,14 @@ public final class InventoryExample extends JavaPlugin {
         dyInventoryManager  = new DyInventoryManager(this);
         DyInventory dyInventory = new DyInventory(TITLE, 3);
         dyInventory.setClickable(true);
-        CustomAction<ItemStack, Player> action = new CustomAction<>(DyItemBuilder.create(Material.ANVIL, 5, "hello"));
-        action.addAction(player -> player.kickPlayer("SIKERULT ELBASZNOD VALAMIT"));
+        CustomAction<ItemStack, Player> action = new CustomAction<>(DyItemBuilder.create(Material.ANVIL, 5, "hallo"));
+        action.addAction(player -> player.kickPlayer("Successfully, You have been fucked something"));
         dyInventory.addItem(0, action);
         dyInventory.addItem(3, action);
         dyInventory.addItem(6, action);
-        dyInventory.addItem(9, new CustomAction<>(DyItemBuilder.create(Material.ANVIL, 8, "buzi")));
-        dyInventory.addItem(12, new CustomAction<>(DyItemBuilder.create(Material.ANVIL, 2, "marci")));
-        dyInventory.addItem(15, new CustomAction<>(DyItemBuilder.create(Material.ANVIL, 59, "pan")));
+        dyInventory.addItem(9, new CustomAction<>(DyItemBuilder.create(Material.ANVIL, 8, "gay")));
+        dyInventory.addItem(12, new CustomAction<>(DyItemBuilder.create(Material.ANVIL, 2, "Marci")));
+        dyInventory.addItem(15, new CustomAction<>(DyItemBuilder.create(Material.ANVIL, 59, "Gay")));
         dyInventoryManager.addInventory(dyInventory);
         getServer().getPluginCommand("testinv").setExecutor(this);
     }

@@ -23,6 +23,7 @@ public class DyInventory {
     }
 
     public void open(Player player) {
+        // replace inventory.getTitle() to inventory.getType().getDefaultTitle() for 1.17.1
         Inventory inner = Bukkit.createInventory(player, inventory.getSize(), inventory.getTitle());
         inner.setContents(inventory.getContents());
         player.openInventory(inner);
