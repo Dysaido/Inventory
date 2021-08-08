@@ -14,7 +14,7 @@ public class DyInventory {
     private final String title;
     private final Map<Integer, CustomAction<ItemStack, Player>> itemMap;
     private final Inventory inventory;
-    private boolean clickable;
+    private boolean clickable = false;
 
     public DyInventory(String title, int rows) {
         this.title = title;
@@ -31,10 +31,12 @@ public class DyInventory {
 
     public void onClick(InventoryClickEvent event) {
         event.setCancelled(true);
-        Player player = (Player) event.getWhoClicked();
-        int slot = event.getSlot();
-        if (itemMap.containsKey(slot)) {
-            itemMap.get(slot).getAction().ifPresent(consumer -> consumer.accept(player));
+        if (clickable) {
+            Player player = (Player) event.getWhoClicked();
+            int slot = event.getSlot();
+            if (itemMap.containsKey(slot)) {
+                itemMap.get(slot).getAction().ifPresent(consumer -> consumer.accept(player));
+            }
         }
     }
 

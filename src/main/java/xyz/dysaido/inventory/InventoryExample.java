@@ -17,16 +17,13 @@ public final class InventoryExample extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
         dyInventoryManager  = new DyInventoryManager(this);
-        DyInventory dyInventory = new DyInventory(TITLE, 3);
+        DyInventory dyInventory = new DyInventory(TITLE, 6);
         dyInventory.setClickable(true);
-        CustomAction<ItemStack, Player> action = new CustomAction<>(DyItemBuilder.create(Material.ANVIL, 5, "hallo"));
-        action.addAction(player -> player.kickPlayer("Successfully, You have been fucked something"));
-        dyInventory.addItem(0, action);
-        dyInventory.addItem(3, action);
-        dyInventory.addItem(6, action);
-        dyInventory.addItem(9, new CustomAction<>(DyItemBuilder.create(Material.ANVIL, 8, "gay")));
-        dyInventory.addItem(12, new CustomAction<>(DyItemBuilder.create(Material.ANVIL, 2, "Marci")));
-        dyInventory.addItem(15, new CustomAction<>(DyItemBuilder.create(Material.ANVIL, 59, "Gay")));
+        CustomAction<ItemStack, Player> action = new CustomAction<>(DyItemBuilder.create(Material.GOLDEN_APPLE, 1, "hallo"));
+        action.addAction(player -> player.kickPlayer("Successfully"));
+        for (int i = 0; i < 56; i++) {
+            if (i % 5 == 0) dyInventory.addItem(i, action);
+        }
         dyInventoryManager.addInventory(dyInventory);
         getServer().getPluginCommand("testinv").setExecutor(this);
     }

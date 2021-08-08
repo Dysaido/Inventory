@@ -28,11 +28,7 @@ public class DyListener implements Listener {
             if (Objects.nonNull(inventory) && !inventory.equals(player.getInventory())) {
                 // replace inventory.getTitle() to inventory.getType().getDefaultTitle() for 1.17.1
                 Optional<DyInventory> optional = inventoryManager.findByTitle(inventory.getTitle());
-                optional.ifPresent(dyInventory -> {
-                    if (dyInventory.isClickable()) {
-                        dyInventory.onClick(event);
-                    }
-                });
+                optional.ifPresent(dyInventory -> dyInventory.onClick(event));
             }
         }
     }
