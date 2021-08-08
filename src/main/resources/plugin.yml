@@ -1,0 +1,9 @@
+name: InventoryExample
+version: ${project.version}
+main: xyz.dysaido.inventory.InventoryExample
+load: STARTUP
+author: Dysaido
+description: This is an inventory api for bukkit plugins
+
+commands:
+  testinv:
