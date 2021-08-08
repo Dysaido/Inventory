@@ -14,17 +14,15 @@ public class DyItemBuilder {
 
     }
 
-
-
     public static ItemStack create(Material material, int amount, String name) {
-        return speedCreateItem(material, amount, name, null);
+        return create(material, amount, name, null);
     }
 
-    public static ItemStack speedCreateItemWool(DyeColor dyeColor, int amount, String name) {
-        return speedCreateItemWool(dyeColor, amount, name, null);
+    public static ItemStack createItemWool(DyeColor dyeColor, int amount, String name) {
+        return createItemWool(dyeColor, amount, name, null);
     }
 
-    public static ItemStack speedCreateItem(Material material, int amount, String name, List<String> lore) {
+    public static ItemStack create(Material material, int amount, String name, List<String> lore) {
         ItemStack itemStack = new ItemStack(material, amount);
         ItemMeta itemMeta = itemStack.getItemMeta();
         itemMeta.setDisplayName(name);
@@ -33,7 +31,7 @@ public class DyItemBuilder {
         return itemStack;
     }
 
-    public static ItemStack speedCreateItemWool(DyeColor dyeColor, int amount, String name, List<String> lore) {
+    public static ItemStack createItemWool(DyeColor dyeColor, int amount, String name, List<String> lore) {
         Wool wool = new Wool(dyeColor);
         ItemStack itemStack = wool.toItemStack(amount);
         ItemMeta itemMeta = itemStack.getItemMeta();
